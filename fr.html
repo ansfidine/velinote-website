@@ -3,79 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Velinote — Une belle application de notes privée avec éditeur de texte enrichi, tâches, calendrier, rappels et thèmes Material You. Sans publicité. Sans pistage.">
-<title>Velinote — Application de Notes Privée</title>
+<meta name="description" content="Velinote — Une belle app de notes privée avec éditeur enrichi, tâches, calendrier, rappels, et thèmes Material You. Sans pub. Sans pistage.">
+<title>Velinote — Vos pensées, en toute confidentialité.</title>
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fff;color:#1c1b1f;line-height:1.6}
-.container{max-width:960px;margin:0 auto;padding:0 24px}
-nav{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;max-width:960px;margin:0 auto}
-nav .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#1c1b1f;font-weight:700;font-size:20px}
-nav .logo img{width:32px}
-nav .langs{display:flex;gap:12px}
-nav .langs a{text-decoration:none;color:#6750a4;font-size:14px;font-weight:500;padding:4px 10px;border-radius:8px}
-nav .langs a:hover{background:#f7f2fa}
-nav .langs a.active{background:#e8def8}
-.hero{text-align:center;padding:80px 0 60px}
-.hero img.logo-hero{width:100px;margin-bottom:20px}
-.hero h1{font-size:52px;font-weight:700;letter-spacing:-1px;margin-bottom:12px}
-.hero p{font-size:20px;color:#6750a4;max-width:600px;margin:0 auto 32px}
-.hero .cta{display:inline-flex;align-items:center;gap:8px;background:#6750a4;color:#fff;text-decoration:none;padding:14px 32px;border-radius:28px;font-size:16px;font-weight:600;transition:all .2s}
-.hero .cta:hover{background:#4f378b;transform:translateY(-2px);box-shadow:0 4px 16px rgba(103,80,164,.3)}
-.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;padding:20px 0 80px}
-.feature{background:#f7f2fa;border-radius:20px;padding:28px;transition:all .2s}
-.feature:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.08)}
-.feature .icon{font-size:36px;margin-bottom:16px}
-.feature h3{font-size:18px;font-weight:600;margin-bottom:8px}
-.feature p{font-size:14px;color:#555;line-height:1.5}
-.screenshots{padding:40px 0 80px}
-.screenshots h2{text-align:center;font-size:32px;font-weight:700;margin-bottom:40px}
-.screenshot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.screenshot-grid img{width:100%;border-radius:16px;box-shadow:0 4px 16px rgba(0,0,0,.1);transition:all .3s}
-.screenshot-grid img:hover{transform:scale(1.03)}
-footer{text-align:center;padding:40px 0;border-top:1px solid #e7e0ec;font-size:13px;color:#999}
-footer a{color:#6750a4;text-decoration:none;margin:0 8px}
+:root{--purple:#6750a4;--purple-deep:#381e72;--surface:#fffbfe;--surface-dark:#1c1b1f;--text:#1c1b1f;--text-secondary:#49454f;--radius:28px;--transition:0.3s cubic-bezier(0.2,0,0,1)}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',Roboto,sans-serif;background:var(--surface);color:var(--text);line-height:1.6;overflow-x:hidden}
+nav{position:fixed;top:0;width:100%;z-index:100;padding:16px 32px;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(103,80,164,.08);transition:var(--transition)}nav.scrolled{background:rgba(255,255,255,.85)}nav .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;font-size:20px;color:var(--text)}nav .brand img{width:34px;border-radius:8px}nav .lang-switch{display:flex;gap:6px;background:rgba(103,80,164,.08);border-radius:20px;padding:3px}nav .lang-switch a{text-decoration:none;padding:5px 12px;border-radius:17px;font-size:13px;font-weight:600;color:var(--text-secondary);transition:var(--transition)}nav .lang-switch a.active,nav .lang-switch a:hover{background:var(--purple);color:#fff}
+.hero{position:relative;padding:180px 32px 120px;text-align:center;overflow:hidden;background:linear-gradient(180deg,#f7f2fa 0%,#fffbfe 40%,#fff 100%)}.hero::before{content:'';position:absolute;top:-50%;left:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(103,80,164,.15) 0%,transparent 70%);animation:float 8s ease-in-out infinite}.hero::after{content:'';position:absolute;bottom:-30%;right:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(103,80,164,.1) 0%,transparent 70%);animation:float 10s ease-in-out infinite reverse}@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,-30px)}}.hero-content{position:relative;z-index:1;max-width:800px;margin:0 auto}.hero .badge{display:inline-block;background:rgba(103,80,164,.1);color:var(--purple);padding:8px 18px;border-radius:20px;font-size:13px;font-weight:600;margin-bottom:24px}.hero .badge span{opacity:.6;margin:0 6px}.hero h1{font-size:clamp(40px,7vw,64px);font-weight:800;letter-spacing:-2px;line-height:1.05;margin-bottom:20px;background:linear-gradient(135deg,var(--purple-deep) 0%,var(--purple) 50%,#b69df7 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.hero p{font-size:20px;color:var(--text-secondary);max-width:560px;margin:0 auto 40px;line-height:1.5}.hero .buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--purple);color:#fff;text-decoration:none;padding:15px 30px;border-radius:var(--radius);font-size:15px;font-weight:600;transition:var(--transition)}.btn-primary:hover{background:#4f378b;transform:translateY(-2px);box-shadow:0 8px 30px rgba(103,80,164,.35)}.btn-secondary{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--purple);text-decoration:none;padding:15px 30px;border-radius:var(--radius);font-size:15px;font-weight:600;border:1.5px solid rgba(103,80,164,.2);transition:var(--transition)}.btn-secondary:hover{border-color:var(--purple);transform:translateY(-2px);box-shadow:0 4px 20px rgba(103,80,164,.1)}.hero-showcase{margin-top:64px;position:relative;z-index:1}.hero-showcase img{max-width:280px;border-radius:24px;box-shadow:0 20px 60px rgba(103,80,164,.2);transition:var(--transition);animation:phoneFloat 6s ease-in-out infinite}.hero-showcase img:nth-child(2){margin-left:-40px;animation-delay:1.5s}.hero-showcase img:nth-child(3){margin-left:-40px;animation-delay:3s}@keyframes phoneFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}section{padding:100px 32px}.section-header{text-align:center;margin-bottom:64px}.section-header h2{font-size:clamp(28px,5vw,44px);font-weight:800;letter-spacing:-1px;margin-bottom:12px}.section-header p{font-size:17px;color:var(--text-secondary);max-width:500px;margin:0 auto}.container{max-width:1100px;margin:0 auto}.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}.feature-card{background:#fff;border:1px solid rgba(103,80,164,.08);border-radius:20px;padding:32px;transition:var(--transition)}.feature-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(103,80,164,.1);border-color:rgba(103,80,164,.15)}.feature-card .f-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:20px}.feature-card:nth-child(1) .f-icon{background:#fce8e6}.feature-card:nth-child(2) .f-icon{background:#e6f4ea}.feature-card:nth-child(3) .f-icon{background:#e8eaf6}.feature-card:nth-child(4) .f-icon{background:#fff3e0}.feature-card:nth-child(5) .f-icon{background:#f3e5f5}.feature-card:nth-child(6) .f-icon{background:#e0f2f1}.feature-card:nth-child(7) .f-icon{background:#fce4ec}.feature-card:nth-child(8) .f-icon{background:#e8f5e9}.feature-card:nth-child(9) .f-icon{background:#ede7f6}.feature-card h3{font-size:17px;font-weight:700;margin-bottom:8px}.feature-card p{font-size:14px;color:var(--text-secondary);line-height:1.6}
+#screenshots{background:#f7f2fa}.screenshots-showcase{display:flex;gap:24px;justify-content:center;flex-wrap:wrap}.screenshots-showcase img{width:240px;border-radius:24px;box-shadow:0 12px 40px rgba(103,80,164,.15);transition:var(--transition)}.screenshots-showcase img:hover{transform:scale(1.04);box-shadow:0 20px 60px rgba(103,80,164,.25)}.stats{display:flex;gap:48px;justify-content:center;flex-wrap:wrap;text-align:center}.stat h3{font-size:42px;font-weight:800;letter-spacing:-1px;background:linear-gradient(135deg,var(--purple),#b69df7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.stat p{font-size:14px;color:var(--text-secondary);margin-top:4px}.cta-section{background:linear-gradient(135deg,var(--purple-deep),var(--purple));text-align:center}.cta-section h2{color:#fff;font-size:40px;margin-bottom:12px}.cta-section p{color:rgba(255,255,255,.75);font-size:17px;margin-bottom:32px}.cta-section .btn-primary{background:#fff;color:var(--purple);font-size:17px;padding:16px 40px}.cta-section .btn-primary:hover{background:#f7f2fa;box-shadow:0 8px 30px rgba(0,0,0,.2)}.cta-section .btn-secondary-cta{display:inline-flex;align-items:center;gap:8px;background:transparent;color:#fff;text-decoration:none;padding:16px 32px;border-radius:var(--radius);font-size:17px;font-weight:600;border:1.5px solid rgba(255,255,255,.25);margin-left:12px;transition:var(--transition)}.cta-section .btn-secondary-cta:hover{background:rgba(255,255,255,.1)}footer{padding:48px 32px;border-top:1px solid #e7e0ec;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;max-width:1100px;margin:0 auto;font-size:13px;color:var(--text-secondary)}footer a{color:var(--purple);text-decoration:none;margin:0 12px;font-weight:500}@media(max-width:768px){.hero{padding:140px 20px 80px}.hero h1{font-size:36px;letter-spacing:-1px}.hero p{font-size:17px}.hero-showcase img{max-width:180px}.hero-showcase img:nth-child(2),.hero-showcase img:nth-child(3){margin-left:-30px}section{padding:64px 20px}.features-grid{grid-template-columns:1fr}.stats{gap:32px}.cta-section h2{font-size:30px}nav{padding:12px 16px}.hero-showcase img:nth-child(3){display:none}}
 </style>
 </head>
 <body>
-<nav>
-<a class="logo" href="/"><img src="img/App_Icon.png" alt="">Velinote</a>
-<div class="langs"><a href="en.html">EN</a><a class="active" href="fr.html">FR</a><a href="zh.html">ZH</a></div>
-</nav>
-
-<div class="container">
+<nav id="navbar"><a class="brand" href="/"><img src="img/App_Icon.png" alt="">Velinote</a><div class="lang-switch"><a href="en.html">EN</a><a class="active" href="fr.html">FR</a><a href="zh.html">ZH</a></div></nav>
+<main>
 <section class="hero">
-<img class="logo-hero" src="img/App_Icon.png" alt="Velinote">
-<h1>Vos pensées, en beauté.</h1>
-<p>Velinote est une application de prise de notes moderne avec éditeur de texte enrichi, gestion de tâches, événements de calendrier et rappels intelligents — le tout stocké en privé sur votre appareil.</p>
-<a class="cta" href="https://play.google.com/store/apps/details?id=com.velinote.velinote">Télécharger sur Google Play</a>
+<div class="hero-content"><div class="badge">✨ <span>·</span> Disponible sur Google Play</div><h1>Vos pensées,<br>en toute confidentialité.</h1><p>Velinote est une expérience de prise de notes moderne — éditeur enrichi, tâches intelligentes, calendrier et rappels. Sans pub. Sans pistage. Juste vos idées.</p><div class="buttons"><a class="btn-primary" href="https://play.google.com/store/apps/details?id=com.velinote.velinote">Télécharger sur Google Play</a><a class="btn-secondary" href="#features">Découvrir</a></div></div>
+<div class="hero-showcase"><img src="img/Screenshot_note.png" alt="Éditeur"><img src="img/Screenshot_eventpng.png" alt="Calendrier"><img src="img/Screenshot_settings.png" alt="Thèmes"></div>
 </section>
-
-<div class="features">
-<div class="feature"><div class="icon">📝</div><h3>Éditeur de Texte Enrichi</h3><p>Écrivez avec le puissant éditeur Quill. Formatez le texte, ajoutez des titres, listes, cases à cocher et plus encore.</p></div>
-<div class="feature"><div class="icon">✅</div><h3>Gestion de Tâches</h3><p>Restez organisé avec des catégories, priorités, dates d'échéance et marquage par étoiles. Filtrez et triez vos tâches.</p></div>
-<div class="feature"><div class="icon">📅</div><h3>Calendrier Intégré</h3><p>Créez et gérez des événements dans l'application. Vues mensuelle, bi-hebdomadaire et hebdomadaire avec rappels.</p></div>
-<div class="feature"><div class="icon">🔔</div><h3>Rappels Intelligents</h3><p>Définissez des rappels pour vos notes et événements. Recevez des notifications au moment précis.</p></div>
-<div class="feature"><div class="icon">🎨</div><h3>16 Thèmes Sublimes</h3><p>Choisissez parmi 16 superbes palettes Material You. Mode clair et sombre avec fonds d'en-tête personnalisables.</p></div>
-<div class="feature"><div class="icon">🏷️</div><h3>Étiquettes & Organisation</h3><p>Étiquetez vos notes pour un filtrage rapide. Archivez, mettez à la corbeille avec annulation. Recherche en texte intégral.</p></div>
-<div class="feature"><div class="icon">🔒</div><h3>Confidentialité Avant Tout</h3><p>Toutes les données sont stockées localement sur votre appareil. Pas de compte, pas de cloud, pas de pistage.</p></div>
-<div class="feature"><div class="icon">🔐</div><h3>Verrouillage Biométrique</h3><p>Sécurisez vos notes sensibles avec empreinte digitale ou reconnaissance faciale.</p></div>
-<div class="feature"><div class="icon">🌍</div><h3>7 Langues</h3><p>Anglais, Français, Espagnol, Arabe, Chinois, Japonais et Swahili — toutes intégrées.</p></div>
-</div>
-
-<section class="screenshots">
-<h2>Captures d'écran</h2>
-<div class="screenshot-grid">
-<img src="img/Screenshot_note.png" alt="Éditeur de notes" loading="lazy">
-<img src="img/Screenshot_eventpng.png" alt="Calendrier" loading="lazy">
-<img src="img/Screenshot_archive.png" alt="Archive" loading="lazy">
-<img src="img/Screenshot_settings.png" alt="Paramètres et thèmes" loading="lazy">
-</div>
-</section>
-</div>
-
-<footer>
-<a href="https://github.com/ansfidine/Velinote">GitHub</a> · <a href="https://ansfidine.github.io/app-policies/velinote">Confidentialité</a> · &copy; 2026 Velinote
-</footer>
+<section id="features"><div class="container"><div class="section-header"><h2>Tout ce dont vous avez besoin,<br>rien de superflu.</h2><p>Des fonctionnalités soigneusement conçues qui respectent votre vie privée.</p></div>
+<div class="features-grid">
+<div class="feature-card"><div class="f-icon">📝</div><h3>Éditeur de Texte Enrichi</h3><p>Propulsé par Quill. Formatez le texte, ajoutez titres, listes, cases à cocher, images et notes vocales.</p></div>
+<div class="feature-card"><div class="f-icon">✅</div><h3>Gestion de Tâches</h3><p>Catégories, priorités, dates d'échéance et étoiles. Filtrez et triez pour vous concentrer sur l'essentiel.</p></div>
+<div class="feature-card"><div class="f-icon">📅</div><h3>Calendrier Intégré</h3><p>Vues mensuelle, bi-hebdomadaire et hebdomadaire. Événements avec lieu et rappels.</p></div>
+<div class="feature-card"><div class="f-icon">🔔</div><h3>Rappels Intelligents</h3><p>Définissez des rappels pour notes et événements. Notifications au moment précis.</p></div>
+<div class="feature-card"><div class="f-icon">🎨</div><h3>16 Thèmes Sublimes</h3><p>Palettes Material You. Ocean, Lavender, Gold, Ruby, Mint et plus. Clair et sombre, toujours beau.</p></div>
+<div class="feature-card"><div class="f-icon">🏷️</div><h3>Étiquettes & Recherche</h3><p>Organisez avec des étiquettes. Archivez et corbeille avec annulation. Recherche en texte intégral.</p></div>
+<div class="feature-card"><div class="f-icon">🔒</div><h3>100% Privé</h3><p>Toutes les données restent sur votre appareil. Pas de compte, pas de cloud, pas d'analytique.</p></div>
+<div class="feature-card"><div class="f-icon">🔐</div><h3>Verrou Biométrique</h3><p>Sécurisez le contenu sensible avec empreinte digitale ou reconnaissance faciale.</p></div>
+<div class="feature-card"><div class="f-icon">🌍</div><h3>7 Langues</h3><p>Anglais, Français, Espagnol, Arabe, Chinois, Japonais, Swahili — toutes intégrées.</p></div>
+</div></div></section>
+<section id="screenshots"><div class="container"><div class="section-header"><h2>Beau par défaut.</h2><p>Design Material You qui s'adapte à votre style.</p></div><div class="screenshots-showcase"><img src="img/Screenshot_note.png" alt="Éditeur" loading="lazy"><img src="img/Screenshot_eventpng.png" alt="Calendrier" loading="lazy"><img src="img/Screenshot_archive.png" alt="Archive" loading="lazy"><img src="img/Screenshot_settings.png" alt="Thèmes" loading="lazy"></div></div></section>
+<section><div class="container"><div class="stats"><div class="stat"><h3>16</h3><p>Thèmes</p></div><div class="stat"><h3>7</h3><p>Langues</p></div><div class="stat"><h3>0</h3><p>Traqueurs</p></div><div class="stat"><h3>∞</h3><p>Possibilités</p></div></div></div></section>
+<section class="cta-section"><div class="container"><h2>Prêt à écrire librement ?</h2><p>Sans pub. Sans compte. Juste vos pensées, magnifiquement organisées.</p><a class="btn-primary" href="https://play.google.com/store/apps/details?id=com.velinote.velinote">Télécharger sur Google Play</a><a class="btn-secondary-cta" href="https://github.com/ansfidine/Velinote">Voir sur GitHub</a></div></section>
+</main>
+<footer><span>&copy; 2026 Velinote</span><div><a href="https://github.com/ansfidine/Velinote">GitHub</a><a href="https://ansfidine.github.io/app-policies/velinote">Confidentialité</a><a href="en.html">English</a><a href="zh.html">中文</a></div></footer>
+<script>window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20)});</script>
 </body>
 </html>

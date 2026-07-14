@@ -4,78 +4,258 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Velinote — A beautiful private notes app with rich text editing, tasks, calendar, reminders, and Material You themes. No ads. No tracking.">
-<title>Velinote — Beautiful Private Notes App</title>
+<title>Velinote — Your thoughts, beautifully private.</title>
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fff;color:#1c1b1f;line-height:1.6}
-.container{max-width:960px;margin:0 auto;padding:0 24px}
-nav{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;max-width:960px;margin:0 auto}
-nav .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#1c1b1f;font-weight:700;font-size:20px}
-nav .logo img{width:32px}
-nav .langs{display:flex;gap:12px}
-nav .langs a{text-decoration:none;color:#6750a4;font-size:14px;font-weight:500;padding:4px 10px;border-radius:8px}
-nav .langs a:hover{background:#f7f2fa}
-nav .langs a.active{background:#e8def8}
-.hero{text-align:center;padding:80px 0 60px}
-.hero img.logo-hero{width:100px;margin-bottom:20px}
-.hero h1{font-size:52px;font-weight:700;letter-spacing:-1px;margin-bottom:12px}
-.hero p{font-size:20px;color:#6750a4;max-width:600px;margin:0 auto 32px}
-.hero .cta{display:inline-flex;align-items:center;gap:8px;background:#6750a4;color:#fff;text-decoration:none;padding:14px 32px;border-radius:28px;font-size:16px;font-weight:600;transition:all .2s}
-.hero .cta:hover{background:#4f378b;transform:translateY(-2px);box-shadow:0 4px 16px rgba(103,80,164,.3)}
-.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;padding:20px 0 80px}
-.feature{background:#f7f2fa;border-radius:20px;padding:28px;transition:all .2s}
-.feature:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.08)}
-.feature .icon{font-size:36px;margin-bottom:16px}
-.feature h3{font-size:18px;font-weight:600;margin-bottom:8px}
-.feature p{font-size:14px;color:#555;line-height:1.5}
-.screenshots{padding:40px 0 80px}
-.screenshots h2{text-align:center;font-size:32px;font-weight:700;margin-bottom:40px}
-.screenshot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.screenshot-grid img{width:100%;border-radius:16px;box-shadow:0 4px 16px rgba(0,0,0,.1);transition:all .3s}
-.screenshot-grid img:hover{transform:scale(1.03)}
-footer{text-align:center;padding:40px 0;border-top:1px solid #e7e0ec;font-size:13px;color:#999}
-footer a{color:#6750a4;text-decoration:none;margin:0 8px}
+:root {
+  --purple: #6750a4;
+  --purple-deep: #381e72;
+  --surface: #fffbfe;
+  --surface-dark: #1c1b1f;
+  --text: #1c1b1f;
+  --text-secondary: #49454f;
+  --text-on-purple: #ffffff;
+  --radius: 28px;
+  --transition: 0.3s cubic-bezier(0.2, 0, 0, 1);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, sans-serif; background: var(--surface); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+
+/* ─── Nav ─── */
+nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 16px 32px; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(103,80,164,.08); transition: var(--transition); }
+nav.scrolled { background: rgba(255,255,255,.85); }
+nav .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; font-size: 20px; color: var(--text); }
+nav .brand img { width: 34px; border-radius: 8px; }
+nav .nav-links { display: flex; gap: 24px; align-items: center; }
+nav .nav-links a { text-decoration: none; color: var(--text-secondary); font-size: 14px; font-weight: 500; transition: var(--transition); }
+nav .nav-links a:hover { color: var(--purple); }
+nav .lang-switch { display: flex; gap: 6px; background: rgba(103,80,164,.08); border-radius: 20px; padding: 3px; }
+nav .lang-switch a { text-decoration: none; padding: 5px 12px; border-radius: 17px; font-size: 13px; font-weight: 600; color: var(--text-secondary); transition: var(--transition); }
+nav .lang-switch a.active, nav .lang-switch a:hover { background: var(--purple); color: #fff; }
+
+/* ─── Hero ─── */
+.hero { position: relative; padding: 180px 32px 120px; text-align: center; overflow: hidden; background: linear-gradient(180deg, #f7f2fa 0%, #fffbfe 40%, #fff 100%); }
+.hero::before { content: ''; position: absolute; top: -50%; left: -20%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(103,80,164,.15) 0%, transparent 70%); animation: float 8s ease-in-out infinite; }
+.hero::after { content: ''; position: absolute; bottom: -30%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(103,80,164,.1) 0%, transparent 70%); animation: float 10s ease-in-out infinite reverse; }
+@keyframes float { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(30px, -30px); } }
+.hero-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+.hero .badge { display: inline-block; background: rgba(103,80,164,.1); color: var(--purple); padding: 8px 18px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-bottom: 24px; letter-spacing: 0.3px; }
+.hero .badge span { opacity: .6; margin: 0 6px; }
+.hero h1 { font-size: clamp(40px, 7vw, 72px); font-weight: 800; letter-spacing: -2px; line-height: 1.05; margin-bottom: 20px; background: linear-gradient(135deg, var(--purple-deep) 0%, var(--purple) 50%, #b69df7 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero p { font-size: 20px; color: var(--text-secondary); max-width: 560px; margin: 0 auto 40px; line-height: 1.5; }
+.hero .buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--purple); color: #fff; text-decoration: none; padding: 15px 30px; border-radius: var(--radius); font-size: 15px; font-weight: 600; transition: var(--transition); }
+.btn-primary:hover { background: #4f378b; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(103,80,164,.35); }
+.btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: #fff; color: var(--purple); text-decoration: none; padding: 15px 30px; border-radius: var(--radius); font-size: 15px; font-weight: 600; border: 1.5px solid rgba(103,80,164,.2); transition: var(--transition); }
+.btn-secondary:hover { border-color: var(--purple); transform: translateY(-2px); box-shadow: 0 4px 20px rgba(103,80,164,.1); }
+.hero-showcase { margin-top: 64px; position: relative; z-index: 1; }
+.hero-showcase img { max-width: 280px; border-radius: 24px; box-shadow: 0 20px 60px rgba(103,80,164,.2); transition: var(--transition); animation: phoneFloat 6s ease-in-out infinite; }
+.hero-showcase img:nth-child(2) { margin-left: -40px; animation-delay: 1.5s; }
+.hero-showcase img:nth-child(3) { margin-left: -40px; animation-delay: 3s; }
+@keyframes phoneFloat { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-12px) rotate(-1deg); } }
+
+/* ─── Section ─── */
+section { padding: 100px 32px; }
+.section-header { text-align: center; margin-bottom: 64px; }
+.section-header h2 { font-size: clamp(28px, 5vw, 44px); font-weight: 800; letter-spacing: -1px; margin-bottom: 12px; }
+.section-header p { font-size: 17px; color: var(--text-secondary); max-width: 500px; margin: 0 auto; }
+.container { max-width: 1100px; margin: 0 auto; }
+
+/* ─── Features Grid ─── */
+.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+.feature-card { background: #fff; border: 1px solid rgba(103,80,164,.08); border-radius: 20px; padding: 32px; transition: var(--transition); position: relative; overflow: hidden; }
+.feature-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(103,80,164,.1); border-color: rgba(103,80,164,.15); }
+.feature-card .f-icon { width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 20px; }
+.feature-card:nth-child(1) .f-icon { background: #fce8e6; }
+.feature-card:nth-child(2) .f-icon { background: #e6f4ea; }
+.feature-card:nth-child(3) .f-icon { background: #e8eaf6; }
+.feature-card:nth-child(4) .f-icon { background: #fff3e0; }
+.feature-card:nth-child(5) .f-icon { background: #f3e5f5; }
+.feature-card:nth-child(6) .f-icon { background: #e0f2f1; }
+.feature-card:nth-child(7) .f-icon { background: #fce4ec; }
+.feature-card:nth-child(8) .f-icon { background: #e8f5e9; }
+.feature-card:nth-child(9) .f-icon { background: #ede7f6; }
+.feature-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+.feature-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+
+/* ─── Screenshots ─── */
+#screenshots { background: #f7f2fa; }
+.screenshots-showcase { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+.screenshots-showcase img { width: 240px; border-radius: 24px; box-shadow: 0 12px 40px rgba(103,80,164,.15); transition: var(--transition); }
+.screenshots-showcase img:hover { transform: scale(1.04) rotate(-1deg); box-shadow: 0 20px 60px rgba(103,80,164,.25); }
+
+/* ─── Stats ─── */
+.stats { display: flex; gap: 48px; justify-content: center; flex-wrap: wrap; text-align: center; }
+.stat h3 { font-size: 42px; font-weight: 800; letter-spacing: -1px; background: linear-gradient(135deg, var(--purple), #b69df7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.stat p { font-size: 14px; color: var(--text-secondary); margin-top: 4px; }
+
+/* ─── CTA ─── */
+.cta-section { background: linear-gradient(135deg, var(--purple-deep), var(--purple)); text-align: center; }
+.cta-section h2 { color: #fff; font-size: 40px; margin-bottom: 12px; }
+.cta-section p { color: rgba(255,255,255,.75); font-size: 17px; margin-bottom: 32px; }
+.cta-section .btn-primary { background: #fff; color: var(--purple); font-size: 17px; padding: 16px 40px; }
+.cta-section .btn-primary:hover { background: #f7f2fa; box-shadow: 0 8px 30px rgba(0,0,0,.2); }
+.cta-section .btn-secondary-cta { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: #fff; text-decoration: none; padding: 16px 32px; border-radius: var(--radius); font-size: 17px; font-weight: 600; border: 1.5px solid rgba(255,255,255,.25); margin-left: 12px; transition: var(--transition); }
+.cta-section .btn-secondary-cta:hover { background: rgba(255,255,255,.1); }
+
+/* ─── Footer ─── */
+footer { padding: 48px 32px; border-top: 1px solid #e7e0ec; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; max-width: 1100px; margin: 0 auto; font-size: 13px; color: var(--text-secondary); }
+footer a { color: var(--purple); text-decoration: none; margin: 0 12px; font-weight: 500; }
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .hero { padding: 140px 20px 80px; }
+  .hero h1 { font-size: 36px; letter-spacing: -1px; }
+  .hero p { font-size: 17px; }
+  .hero-showcase img { max-width: 180px; }
+  .hero-showcase img:nth-child(2), .hero-showcase img:nth-child(3) { margin-left: -30px; }
+  section { padding: 64px 20px; }
+  .features-grid { grid-template-columns: 1fr; }
+  .stats { gap: 32px; }
+  .cta-section h2 { font-size: 30px; }
+  nav { padding: 12px 16px; }
+  .hero-showcase img:nth-child(3) { display: none; }
+}
 </style>
 </head>
 <body>
-<nav>
-<a class="logo" href="/"><img src="img/App_Icon.png" alt="">Velinote</a>
-<div class="langs"><a class="active" href="en.html">EN</a><a href="fr.html">FR</a><a href="zh.html">ZH</a></div>
+
+<nav id="navbar">
+  <a class="brand" href="/"><img src="img/App_Icon.png" alt="">Velinote</a>
+  <div class="lang-switch">
+    <a class="active" href="en.html">EN</a>
+    <a href="fr.html">FR</a>
+    <a href="zh.html">ZH</a>
+  </div>
 </nav>
 
-<div class="container">
-<section class="hero">
-<img class="logo-hero" src="img/App_Icon.png" alt="Velinote">
-<h1>Your Thoughts, Beautifully.</h1>
-<p>Velinote is a modern note-taking app with rich text editing, task management, calendar events, and smart reminders — all stored privately on your device.</p>
-<a class="cta" href="https://play.google.com/store/apps/details?id=com.velinote.velinote">Download on Google Play</a>
-</section>
+<main>
+  <section class="hero">
+    <div class="hero-content">
+      <div class="badge">✨ <span>·</span> Now Available on Google Play</div>
+      <h1>Your thoughts,<br>beautifully private.</h1>
+      <p>Velinote is a modern note-taking experience — rich editing, smart tasks, calendar events, and intelligent reminders. No ads. No tracking. Just your ideas.</p>
+      <div class="buttons">
+        <a class="btn-primary" href="https://play.google.com/store/apps/details?id=com.velinote.velinote">
+          <svg width="18" height="20" viewBox="0 0 18 20" fill="white"><path d="M17.5 9.5L1.6.2C1-.1.3.1.1.7c-.1.2-.1.4-.1.6v17.4c0 .5.4.9.9.9.2 0 .4 0 .5-.2l16-9.3c.5-.3.6-1 .3-1.5-.1-.1-.2-.1-.2-.1z"/></svg>
+          Get it on Google Play
+        </a>
+        <a class="btn-secondary" href="#features">Explore Features</a>
+      </div>
+    </div>
+    <div class="hero-showcase">
+      <img src="img/Screenshot_note.png" alt="Note Editor">
+      <img src="img/Screenshot_eventpng.png" alt="Calendar">
+      <img src="img/Screenshot_settings.png" alt="Themes">
+    </div>
+  </section>
 
-<div class="features">
-<div class="feature"><div class="icon">📝</div><h3>Rich Text Editing</h3><p>Write with the powerful Quill editor. Format text, add headings, lists, checkboxes, and more. Your notes, your style.</p></div>
-<div class="feature"><div class="icon">✅</div><h3>Task Management</h3><p>Stay on top of your to-dos with categories, priorities, due dates, and star marking. Filter and sort tasks to focus on what matters.</p></div>
-<div class="feature"><div class="icon">📅</div><h3>Calendar Integration</h3><p>Create and manage events right inside the app. Month, 2-week, and week views. Event cards with location support and reminders.</p></div>
-<div class="feature"><div class="icon">🔔</div><h3>Smart Reminders</h3><p>Set reminders for notes and events. Get notified exactly when you need to act — never miss a deadline again.</p></div>
-<div class="feature"><div class="icon">🎨</div><h3>16 Beautiful Themes</h3><p>Choose from 16 stunning Material You color schemes. Light and dark mode support with customizable header backgrounds.</p></div>
-<div class="feature"><div class="icon">🏷️</div><h3>Tags & Organization</h3><p>Tag your notes for quick filtering. Archive old notes. Trash with undo support. Full-text search across all your content.</p></div>
-<div class="feature"><div class="icon">🔒</div><h3>Privacy First</h3><p>All data is stored locally on your device. No accounts, no cloud sync, no tracking. Your notes are yours alone.</p></div>
-<div class="feature"><div class="icon">🔐</div><h3>Biometric Lock</h3><p>Secure sensitive notes with fingerprint or face unlock. Keep private thoughts truly private.</p></div>
-<div class="feature"><div class="icon">🌍</div><h3>7 Languages</h3><p>English, French, Spanish, Arabic, Chinese, Japanese, and Swahili — all built-in.</p></div>
-</div>
+  <section id="features">
+    <div class="container">
+      <div class="section-header">
+        <h2>Everything you need,<br>nothing you don't.</h2>
+        <p>Thoughtfully designed features that respect your privacy.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="f-icon">📝</div>
+          <h3>Rich Text Editor</h3>
+          <p>Powered by Quill. Format text, add headings, lists, checkboxes, images, and voice notes. Full creative freedom.</p>
+        </div>
+        <div class="feature-card">
+          <div class="f-icon">✅</div>
+          <h3>Smart Task Management</h3>
+          <p>Categories, priorities, due dates, and star marking. Filter and sort to focus on what matters most.</p>
+        </div>
+        <div class="feature-card">
+          <div class="f-icon">📅</div>
+          <h3>Integrated Calendar</h3>
+          <p>Month, 2-week, and week views. Event cards with location and reminders. Your schedule, your way.</p>
+        </div>
+        <div class="feature-card">
+          <div class="f-icon">🔔</div>
+          <h3>Intelligent Reminders</h3>
+          <p>Set reminders for notes and events. Scheduled notifications fire precisely when you need to act.</p>
+        </div>
+        <div class="feature-card">
+          <div class="f-icon">🎨</div>
+          <h3>16 Stunning Themes</h3>
+          <p>Material You color schemes. Ocean, Lavender, Gold, Ruby, Mint & more. Light and dark, always beautiful.</p>
+        </div>
+        <div class="feature-card">
+          <div class="f-icon">🏷️</div>
+          <h3>Tags &amp; Search</h3>
+          <p>Organize with tags. Archive and trash with undo. Full-text search across all your content in milliseconds.</p>
+        </div>
+        <div class="feature-card">
+          <div class="f-icon">🔒</div>
+          <h3>100% Private</h3>
+          <p>All data stays on your device. No accounts, no cloud sync, no analytics. Your notes belong to you alone.</p>
+        </div>
+        <div class="feature-card">
+          <div class="f-icon">🔐</div>
+          <h3>Biometric Lock</h3>
+          <p>Secure sensitive content with fingerprint or face unlock. Peace of mind in your pocket.</p>
+        </div>
+        <div class="feature-card">
+          <div class="f-icon">🌍</div>
+          <h3>7 Languages</h3>
+          <p>English, French, Spanish, Arabic, Chinese, Japanese, Swahili — all built-in, ready for the world.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section class="screenshots">
-<h2>Screenshots</h2>
-<div class="screenshot-grid">
-<img src="img/Screenshot_note.png" alt="Note Editor" loading="lazy">
-<img src="img/Screenshot_eventpng.png" alt="Calendar Events" loading="lazy">
-<img src="img/Screenshot_archive.png" alt="Archive" loading="lazy">
-<img src="img/Screenshot_settings.png" alt="Settings & Themes" loading="lazy">
-</div>
-</section>
-</div>
+  <section id="screenshots">
+    <div class="container">
+      <div class="section-header">
+        <h2>Beautiful by default.</h2>
+        <p>Material You design that adapts to your style.</p>
+      </div>
+      <div class="screenshots-showcase">
+        <img src="img/Screenshot_note.png" alt="Note Editor" loading="lazy">
+        <img src="img/Screenshot_eventpng.png" alt="Calendar" loading="lazy">
+        <img src="img/Screenshot_archive.png" alt="Archive" loading="lazy">
+        <img src="img/Screenshot_settings.png" alt="Themes" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="stats">
+        <div class="stat"><h3>16</h3><p>Color Themes</p></div>
+        <div class="stat"><h3>7</h3><p>Languages</p></div>
+        <div class="stat"><h3>0</h3><p>Trackers</p></div>
+        <div class="stat"><h3>∞</h3><p>Possibilities</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to write freely?</h2>
+      <p>No ads. No accounts. Just your thoughts, beautifully organized.</p>
+      <a class="btn-primary" href="https://play.google.com/store/apps/details?id=com.velinote.velinote">Get it on Google Play</a>
+      <a class="btn-secondary-cta" href="https://github.com/ansfidine/Velinote">View on GitHub</a>
+    </div>
+  </section>
+</main>
 
 <footer>
-<a href="https://github.com/ansfidine/Velinote">GitHub</a> · <a href="https://ansfidine.github.io/app-policies/velinote">Privacy Policy</a> · &copy; 2026 Velinote
+  <span>&copy; 2026 Velinote</span>
+  <div>
+    <a href="https://github.com/ansfidine/Velinote">GitHub</a>
+    <a href="https://ansfidine.github.io/app-policies/velinote">Privacy</a>
+    <a href="fr.html">Français</a>
+    <a href="zh.html">中文</a>
+  </div>
 </footer>
+
+<script>
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+});
+</script>
 </body>
 </html>
