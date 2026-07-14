@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Velinote — 一款精美的私人笔记应用，支持富文本编辑、任务管理、日历事件和智能提醒。Material You 主题。无广告。无追踪。">
+<title>Velinote — 精美的私人笔记应用</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans SC',Roboto,sans-serif;background:#fff;color:#1c1b1f;line-height:1.6}
+.container{max-width:960px;margin:0 auto;padding:0 24px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;max-width:960px;margin:0 auto}
+nav .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#1c1b1f;font-weight:700;font-size:20px}
+nav .logo img{width:32px}
+nav .langs{display:flex;gap:12px}
+nav .langs a{text-decoration:none;color:#6750a4;font-size:14px;font-weight:500;padding:4px 10px;border-radius:8px}
+nav .langs a:hover{background:#f7f2fa}
+nav .langs a.active{background:#e8def8}
+.hero{text-align:center;padding:80px 0 60px}
+.hero img.logo-hero{width:100px;margin-bottom:20px}
+.hero h1{font-size:52px;font-weight:700;letter-spacing:-1px;margin-bottom:12px}
+.hero p{font-size:20px;color:#6750a4;max-width:600px;margin:0 auto 32px}
+.hero .cta{display:inline-flex;align-items:center;gap:8px;background:#6750a4;color:#fff;text-decoration:none;padding:14px 32px;border-radius:28px;font-size:16px;font-weight:600;transition:all .2s}
+.hero .cta:hover{background:#4f378b;transform:translateY(-2px);box-shadow:0 4px 16px rgba(103,80,164,.3)}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;padding:20px 0 80px}
+.feature{background:#f7f2fa;border-radius:20px;padding:28px;transition:all .2s}
+.feature:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.feature .icon{font-size:36px;margin-bottom:16px}
+.feature h3{font-size:18px;font-weight:600;margin-bottom:8px}
+.feature p{font-size:14px;color:#555;line-height:1.5}
+.screenshots{padding:40px 0 80px}
+.screenshots h2{text-align:center;font-size:32px;font-weight:700;margin-bottom:40px}
+.screenshot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.screenshot-grid img{width:100%;border-radius:16px;box-shadow:0 4px 16px rgba(0,0,0,.1);transition:all .3s}
+.screenshot-grid img:hover{transform:scale(1.03)}
+footer{text-align:center;padding:40px 0;border-top:1px solid #e7e0ec;font-size:13px;color:#999}
+footer a{color:#6750a4;text-decoration:none;margin:0 8px}
+</style>
+</head>
+<body>
+<nav>
+<a class="logo" href="/"><img src="img/App_Icon.png" alt="">Velinote</a>
+<div class="langs"><a href="en.html">EN</a><a href="fr.html">FR</a><a class="active" href="zh.html">ZH</a></div>
+</nav>
+
+<div class="container">
+<section class="hero">
+<img class="logo-hero" src="img/App_Icon.png" alt="Velinote">
+<h1>记录你的想法，优雅而私密。</h1>
+<p>Velinote 是一款现代笔记应用，支持富文本编辑、任务管理、日历活动和智能提醒 —— 所有数据私密存储在您的设备上。</p>
+<a class="cta" href="https://play.google.com/store/apps/details?id=com.velinote.velinote">在 Google Play 下载</a>
+</section>
+
+<div class="features">
+<div class="feature"><div class="icon">📝</div><h3>富文本编辑</h3><p>使用强大的 Quill 编辑器。格式化文本，添加标题、列表、复选框等。</p></div>
+<div class="feature"><div class="icon">✅</div><h3>任务管理</h3><p>通过分类、优先级、截止日期和星标来管理待办事项。筛选和排序任务。</p></div>
+<div class="feature"><div class="icon">📅</div><h3>内置日历</h3><p>在应用中创建和管理事件。支持月视图、双周视图和周视图，附带位置和提醒。</p></div>
+<div class="feature"><div class="icon">🔔</div><h3>智能提醒</h3><p>为笔记和事件设置提醒。在需要行动的确切时刻收到通知。</p></div>
+<div class="feature"><div class="icon">🎨</div><h3>16 种精美主题</h3><p>从 16 种惊艳的 Material You 配色方案中选择。支持浅色和深色模式。</p></div>
+<div class="feature"><div class="icon">🏷️</div><h3>标签与整理</h3><p>为笔记添加标签以便快速筛选。归档旧笔记。支持撤销的回收站。全文搜索所有内容。</p></div>
+<div class="feature"><div class="icon">🔒</div><h3>隐私优先</h3><p>所有数据本地存储在您的设备上。无需账号，无云同步，无追踪。您的笔记只属于您。</p></div>
+<div class="feature"><div class="icon">🔐</div><h3>生物识别锁定</h3><p>使用指纹或面部识别保护敏感笔记。让私密想法真正私密。</p></div>
+<div class="feature"><div class="icon">🌍</div><h3>7 种语言</h3><p>英语、法语、西班牙语、阿拉伯语、中文、日语和斯瓦希里语 — 全部内置。</p></div>
+</div>
+
+<section class="screenshots">
+<h2>截图</h2>
+<div class="screenshot-grid">
+<img src="img/Screenshot_note.png" alt="笔记编辑器" loading="lazy">
+<img src="img/Screenshot_eventpng.png" alt="日历事件" loading="lazy">
+<img src="img/Screenshot_archive.png" alt="归档" loading="lazy">
+<img src="img/Screenshot_settings.png" alt="设置与主题" loading="lazy">
+</div>
+</section>
+</div>
+
+<footer>
+<a href="https://github.com/ansfidine/Velinote">GitHub</a> · <a href="https://ansfidine.github.io/app-policies/velinote">隐私政策</a> · &copy; 2026 Velinote
+</footer>
+</body>
+</html>

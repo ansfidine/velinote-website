@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Velinote — Une belle application de notes privée avec éditeur de texte enrichi, tâches, calendrier, rappels et thèmes Material You. Sans publicité. Sans pistage.">
+<title>Velinote — Application de Notes Privée</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fff;color:#1c1b1f;line-height:1.6}
+.container{max-width:960px;margin:0 auto;padding:0 24px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;max-width:960px;margin:0 auto}
+nav .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#1c1b1f;font-weight:700;font-size:20px}
+nav .logo img{width:32px}
+nav .langs{display:flex;gap:12px}
+nav .langs a{text-decoration:none;color:#6750a4;font-size:14px;font-weight:500;padding:4px 10px;border-radius:8px}
+nav .langs a:hover{background:#f7f2fa}
+nav .langs a.active{background:#e8def8}
+.hero{text-align:center;padding:80px 0 60px}
+.hero img.logo-hero{width:100px;margin-bottom:20px}
+.hero h1{font-size:52px;font-weight:700;letter-spacing:-1px;margin-bottom:12px}
+.hero p{font-size:20px;color:#6750a4;max-width:600px;margin:0 auto 32px}
+.hero .cta{display:inline-flex;align-items:center;gap:8px;background:#6750a4;color:#fff;text-decoration:none;padding:14px 32px;border-radius:28px;font-size:16px;font-weight:600;transition:all .2s}
+.hero .cta:hover{background:#4f378b;transform:translateY(-2px);box-shadow:0 4px 16px rgba(103,80,164,.3)}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;padding:20px 0 80px}
+.feature{background:#f7f2fa;border-radius:20px;padding:28px;transition:all .2s}
+.feature:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.feature .icon{font-size:36px;margin-bottom:16px}
+.feature h3{font-size:18px;font-weight:600;margin-bottom:8px}
+.feature p{font-size:14px;color:#555;line-height:1.5}
+.screenshots{padding:40px 0 80px}
+.screenshots h2{text-align:center;font-size:32px;font-weight:700;margin-bottom:40px}
+.screenshot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.screenshot-grid img{width:100%;border-radius:16px;box-shadow:0 4px 16px rgba(0,0,0,.1);transition:all .3s}
+.screenshot-grid img:hover{transform:scale(1.03)}
+footer{text-align:center;padding:40px 0;border-top:1px solid #e7e0ec;font-size:13px;color:#999}
+footer a{color:#6750a4;text-decoration:none;margin:0 8px}
+</style>
+</head>
+<body>
+<nav>
+<a class="logo" href="/"><img src="img/App_Icon.png" alt="">Velinote</a>
+<div class="langs"><a href="en.html">EN</a><a class="active" href="fr.html">FR</a><a href="zh.html">ZH</a></div>
+</nav>
+
+<div class="container">
+<section class="hero">
+<img class="logo-hero" src="img/App_Icon.png" alt="Velinote">
+<h1>Vos pensées, en beauté.</h1>
+<p>Velinote est une application de prise de notes moderne avec éditeur de texte enrichi, gestion de tâches, événements de calendrier et rappels intelligents — le tout stocké en privé sur votre appareil.</p>
+<a class="cta" href="https://play.google.com/store/apps/details?id=com.velinote.velinote">Télécharger sur Google Play</a>
+</section>
+
+<div class="features">
+<div class="feature"><div class="icon">📝</div><h3>Éditeur de Texte Enrichi</h3><p>Écrivez avec le puissant éditeur Quill. Formatez le texte, ajoutez des titres, listes, cases à cocher et plus encore.</p></div>
+<div class="feature"><div class="icon">✅</div><h3>Gestion de Tâches</h3><p>Restez organisé avec des catégories, priorités, dates d'échéance et marquage par étoiles. Filtrez et triez vos tâches.</p></div>
+<div class="feature"><div class="icon">📅</div><h3>Calendrier Intégré</h3><p>Créez et gérez des événements dans l'application. Vues mensuelle, bi-hebdomadaire et hebdomadaire avec rappels.</p></div>
+<div class="feature"><div class="icon">🔔</div><h3>Rappels Intelligents</h3><p>Définissez des rappels pour vos notes et événements. Recevez des notifications au moment précis.</p></div>
+<div class="feature"><div class="icon">🎨</div><h3>16 Thèmes Sublimes</h3><p>Choisissez parmi 16 superbes palettes Material You. Mode clair et sombre avec fonds d'en-tête personnalisables.</p></div>
+<div class="feature"><div class="icon">🏷️</div><h3>Étiquettes & Organisation</h3><p>Étiquetez vos notes pour un filtrage rapide. Archivez, mettez à la corbeille avec annulation. Recherche en texte intégral.</p></div>
+<div class="feature"><div class="icon">🔒</div><h3>Confidentialité Avant Tout</h3><p>Toutes les données sont stockées localement sur votre appareil. Pas de compte, pas de cloud, pas de pistage.</p></div>
+<div class="feature"><div class="icon">🔐</div><h3>Verrouillage Biométrique</h3><p>Sécurisez vos notes sensibles avec empreinte digitale ou reconnaissance faciale.</p></div>
+<div class="feature"><div class="icon">🌍</div><h3>7 Langues</h3><p>Anglais, Français, Espagnol, Arabe, Chinois, Japonais et Swahili — toutes intégrées.</p></div>
+</div>
+
+<section class="screenshots">
+<h2>Captures d'écran</h2>
+<div class="screenshot-grid">
+<img src="img/Screenshot_note.png" alt="Éditeur de notes" loading="lazy">
+<img src="img/Screenshot_eventpng.png" alt="Calendrier" loading="lazy">
+<img src="img/Screenshot_archive.png" alt="Archive" loading="lazy">
+<img src="img/Screenshot_settings.png" alt="Paramètres et thèmes" loading="lazy">
+</div>
+</section>
+</div>
+
+<footer>
+<a href="https://github.com/ansfidine/Velinote">GitHub</a> · <a href="https://ansfidine.github.io/app-policies/velinote">Confidentialité</a> · &copy; 2026 Velinote
+</footer>
+</body>
+</html>
