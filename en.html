@@ -7,13 +7,13 @@
 <title>Velinote — Your thoughts, beautifully private.</title>
 <style>
 :root {
-  --purple: #6750a4;
-  --purple-deep: #381e72;
+  --primary: #1565c0;
+  --primary-deep: #0d47a1;
   --surface: #fffbfe;
   --surface-dark: #1c1b1f;
   --text: #1c1b1f;
   --text-secondary: #49454f;
-  --text-on-purple: #ffffff;
+  --text-on-primary: #ffffff;
   --radius: 28px;
   --transition: 0.3s cubic-bezier(0.2, 0, 0, 1);
 }
@@ -22,34 +22,34 @@ html { scroll-behavior: smooth; }
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, sans-serif; background: var(--surface); color: var(--text); line-height: 1.6; overflow-x: hidden; }
 
 /* ─── Nav ─── */
-nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 16px 32px; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(103,80,164,.08); transition: var(--transition); }
+nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 16px 32px; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(21,101,192,.08); transition: var(--transition); }
 nav.scrolled { background: rgba(255,255,255,.85); }
 nav .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; font-size: 20px; color: var(--text); }
 nav .brand img { width: 34px; border-radius: 8px; }
 nav .nav-links { display: flex; gap: 24px; align-items: center; }
 nav .nav-links a { text-decoration: none; color: var(--text-secondary); font-size: 14px; font-weight: 500; transition: var(--transition); }
-nav .nav-links a:hover { color: var(--purple); }
-nav .lang-switch { display: flex; gap: 6px; background: rgba(103,80,164,.08); border-radius: 20px; padding: 3px; }
+nav .nav-links a:hover { color: var(--primary); }
+nav .lang-switch { display: flex; gap: 6px; background: rgba(21,101,192,.08); border-radius: 20px; padding: 3px; }
 nav .lang-switch a { text-decoration: none; padding: 5px 12px; border-radius: 17px; font-size: 13px; font-weight: 600; color: var(--text-secondary); transition: var(--transition); }
-nav .lang-switch a.active, nav .lang-switch a:hover { background: var(--purple); color: #fff; }
+nav .lang-switch a.active, nav .lang-switch a:hover { background: var(--primary); color: #fff; }
 
 /* ─── Hero ─── */
-.hero { position: relative; padding: 160px 32px 60px; text-align: center; overflow: hidden; background: linear-gradient(180deg, #f7f2fa 0%, #fffbfe 40%, #fff 100%); }
-.hero::before { content: ''; position: absolute; top: -50%; left: -20%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(103,80,164,.15) 0%, transparent 70%); animation: float 8s ease-in-out infinite; }
-.hero::after { content: ''; position: absolute; bottom: -30%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(103,80,164,.1) 0%, transparent 70%); animation: float 10s ease-in-out infinite reverse; }
+.hero { position: relative; padding: 160px 32px 60px; text-align: center; overflow: hidden; background: linear-gradient(180deg, #e3f2fd 0%, #fffbfe 40%, #fff 100%); }
+.hero::before { content: ''; position: absolute; top: -50%; left: -20%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(21,101,192,.15) 0%, transparent 70%); animation: float 8s ease-in-out infinite; }
+.hero::after { content: ''; position: absolute; bottom: -30%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(21,101,192,.1) 0%, transparent 70%); animation: float 10s ease-in-out infinite reverse; }
 @keyframes float { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(30px, -30px); } }
 .hero-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
-.hero .badge { display: inline-block; background: rgba(103,80,164,.1); color: var(--purple); padding: 8px 18px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-bottom: 24px; letter-spacing: 0.3px; }
+.hero .badge { display: inline-block; background: rgba(21,101,192,.1); color: var(--primary); padding: 8px 18px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-bottom: 24px; letter-spacing: 0.3px; }
 .hero .badge span { opacity: .6; margin: 0 6px; }
-.hero h1 { font-size: clamp(40px, 7vw, 72px); font-weight: 800; letter-spacing: -2px; line-height: 1.05; margin-bottom: 20px; background: linear-gradient(135deg, var(--purple-deep) 0%, var(--purple) 50%, #b69df7 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero h1 { font-size: clamp(40px, 7vw, 72px); font-weight: 800; letter-spacing: -2px; line-height: 1.05; margin-bottom: 20px; background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary) 50%, #64b5f6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .hero p { font-size: 20px; color: var(--text-secondary); max-width: 560px; margin: 0 auto 40px; line-height: 1.5; }
 .hero .buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-.btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--purple); color: #fff; text-decoration: none; padding: 15px 30px; border-radius: var(--radius); font-size: 15px; font-weight: 600; transition: var(--transition); }
-.btn-primary:hover { background: #4f378b; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(103,80,164,.35); }
-.btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: #fff; color: var(--purple); text-decoration: none; padding: 15px 30px; border-radius: var(--radius); font-size: 15px; font-weight: 600; border: 1.5px solid rgba(103,80,164,.2); transition: var(--transition); }
-.btn-secondary:hover { border-color: var(--purple); transform: translateY(-2px); box-shadow: 0 4px 20px rgba(103,80,164,.1); }
+.btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--primary); color: #fff; text-decoration: none; padding: 15px 30px; border-radius: var(--radius); font-size: 15px; font-weight: 600; transition: var(--transition); }
+.btn-primary:hover { background: #0d47a1; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(21,101,192,.35); }
+.btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: #fff; color: var(--primary); text-decoration: none; padding: 15px 30px; border-radius: var(--radius); font-size: 15px; font-weight: 600; border: 1.5px solid rgba(21,101,192,.2); transition: var(--transition); }
+.btn-secondary:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: 0 4px 20px rgba(21,101,192,.1); }
 .hero-showcase { margin-top: 48px; position: relative; z-index: 1; width: 100vw; margin-left: calc(-50vw + 50%); }
-.hero-showcase img { width: 100%; max-width: 1200px; border-radius: 16px; box-shadow: 0 20px 60px rgba(103,80,164,.15); transition: var(--transition); animation: phoneFloat 5s ease-in-out infinite; }
+.hero-showcase img { width: 100%; max-width: 1200px; border-radius: 16px; box-shadow: 0 20px 60px rgba(21,101,192,.15); transition: var(--transition); animation: phoneFloat 5s ease-in-out infinite; }
 @keyframes phoneFloat { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-12px) rotate(-1deg); } }
 
 /* ─── Section ─── */
@@ -61,8 +61,8 @@ section { padding: 100px 32px; }
 
 /* ─── Features Grid ─── */
 .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
-.feature-card { background: #fff; border: 1px solid rgba(103,80,164,.08); border-radius: 20px; padding: 32px; transition: var(--transition); position: relative; overflow: hidden; }
-.feature-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(103,80,164,.1); border-color: rgba(103,80,164,.15); }
+.feature-card { background: #fff; border: 1px solid rgba(21,101,192,.08); border-radius: 20px; padding: 32px; transition: var(--transition); position: relative; overflow: hidden; }
+.feature-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(21,101,192,.1); border-color: rgba(21,101,192,.15); }
 .feature-card .f-icon { width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 20px; }
 .feature-card:nth-child(1) .f-icon { background: #fce8e6; }
 .feature-card:nth-child(2) .f-icon { background: #e6f4ea; }
@@ -77,28 +77,28 @@ section { padding: 100px 32px; }
 .feature-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
 
 /* ─── Screenshots ─── */
-#screenshots { background: #f7f2fa; }
+#screenshots { background: #e3f2fd; }
 .screenshots-showcase { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; align-items: flex-start; }
-.screenshots-showcase img { width: 180px; border-radius: 24px; box-shadow: 0 12px 40px rgba(103,80,164,.15); transition: var(--transition); }
-.screenshots-showcase img:hover { transform: scale(1.04) rotate(-1deg); box-shadow: 0 20px 60px rgba(103,80,164,.25); }
+.screenshots-showcase img { width: 180px; border-radius: 24px; box-shadow: 0 12px 40px rgba(21,101,192,.15); transition: var(--transition); }
+.screenshots-showcase img:hover { transform: scale(1.04) rotate(-1deg); box-shadow: 0 20px 60px rgba(21,101,192,.25); }
 
 /* ─── Stats ─── */
 .stats { display: flex; gap: 48px; justify-content: center; flex-wrap: wrap; text-align: center; }
-.stat h3 { font-size: 42px; font-weight: 800; letter-spacing: -1px; background: linear-gradient(135deg, var(--purple), #b69df7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.stat h3 { font-size: 42px; font-weight: 800; letter-spacing: -1px; background: linear-gradient(135deg, var(--primary), #64b5f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .stat p { font-size: 14px; color: var(--text-secondary); margin-top: 4px; }
 
 /* ─── CTA ─── */
-.cta-section { background: linear-gradient(135deg, var(--purple-deep), var(--purple)); text-align: center; }
+.cta-section { background: linear-gradient(135deg, var(--primary-deep), var(--primary)); text-align: center; }
 .cta-section h2 { color: #fff; font-size: 40px; margin-bottom: 12px; }
 .cta-section p { color: rgba(255,255,255,.75); font-size: 17px; margin-bottom: 32px; }
-.cta-section .btn-primary { background: #fff; color: var(--purple); font-size: 17px; padding: 16px 40px; }
-.cta-section .btn-primary:hover { background: #f7f2fa; box-shadow: 0 8px 30px rgba(0,0,0,.2); }
+.cta-section .btn-primary { background: #fff; color: var(--primary); font-size: 17px; padding: 16px 40px; }
+.cta-section .btn-primary:hover { background: #e3f2fd; box-shadow: 0 8px 30px rgba(0,0,0,.2); }
 .cta-section .btn-secondary-cta { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: #fff; text-decoration: none; padding: 16px 32px; border-radius: var(--radius); font-size: 17px; font-weight: 600; border: 1.5px solid rgba(255,255,255,.25); margin-left: 12px; transition: var(--transition); }
 .cta-section .btn-secondary-cta:hover { background: rgba(255,255,255,.1); }
 
 /* ─── Footer ─── */
-footer { padding: 48px 32px; border-top: 1px solid #e7e0ec; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; max-width: 1100px; margin: 0 auto; font-size: 13px; color: var(--text-secondary); }
-footer a { color: var(--purple); text-decoration: none; margin: 0 12px; font-weight: 500; }
+footer { padding: 48px 32px; border-top: 1px solid #e3f2fd; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; max-width: 1100px; margin: 0 auto; font-size: 13px; color: var(--text-secondary); }
+footer a { color: var(--primary); text-decoration: none; margin: 0 12px; font-weight: 500; }
 
 /* ─── Responsive ─── */
 @media (max-width: 768px) {
@@ -132,7 +132,7 @@ footer a { color: var(--purple); text-decoration: none; margin: 0 12px; font-wei
 <h1>Your thoughts,<br>beautifully private.</h1>
 <p>Velinote is a modern note-taking experience — rich editing, smart tasks, calendar events, and intelligent reminders. No ads. No tracking. Just your ideas, beautifully organized.</p>
 <p style="font-size:16px;color:var(--text-secondary);max-width:500px;margin:0 auto 40px">Whether you're a student capturing lectures, a professional planning projects, or someone who simply loves to write — Velinote gives you the tools to think, organize, and create. Every feature is designed with privacy at its core. Every note stays on your device, encrypted and secure.</p>
-<p style="font-size:14px;font-weight:600;color:var(--purple);margin-bottom:32px;letter-spacing:0.5px">Velinote — Smart Note, Better You.</p>
+<p style="font-size:14px;font-weight:600;color:var(--primary);margin-bottom:32px;letter-spacing:0.5px">Velinote — Smart Note, Better You.</p>
       <div class="buttons">
         <a class="btn-primary" href="https://play.google.com/store/apps/details?id=com.velinote.velinote">
           <svg width="18" height="20" viewBox="0 0 18 20" fill="white"><path d="M17.5 9.5L1.6.2C1-.1.3.1.1.7c-.1.2-.1.4-.1.6v17.4c0 .5.4.9.9.9.2 0 .4 0 .5-.2l16-9.3c.5-.3.6-1 .3-1.5-.1-.1-.2-.1-.2-.1z"/></svg>
@@ -234,7 +234,6 @@ footer a { color: var(--purple); text-decoration: none; margin: 0 12px; font-wei
       <h2>Ready to write freely?</h2>
       <p>No ads. No accounts. Just your thoughts, beautifully organized.</p>
       <a class="btn-primary" href="https://play.google.com/store/apps/details?id=com.velinote.velinote">Get it on Google Play</a>
-      <a class="btn-secondary-cta" href="https://github.com/ansfidine/Velinote">View on GitHub</a>
     </div>
   </section>
 </main>
@@ -242,7 +241,7 @@ footer a { color: var(--purple); text-decoration: none; margin: 0 12px; font-wei
 <footer>
   <span>&copy; 2026 Velinote</span>
   <div>
-    <a href="https://github.com/ansfidine/Velinote">GitHub</a>
+    <a href="mailto:ansfdine@gmail.com">ansfdine@gmail.com</a>
     <a href="https://ansfidine.github.io/app-policies/velinote">Privacy</a>
     <a href="fr.html">Français</a>
     <a href="zh.html">中文</a>
