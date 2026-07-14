@@ -241,7 +241,11 @@ footer a { color: var(--primary); text-decoration: none; margin: 0 12px; font-we
 <footer>
   <span>&copy; 2026 Velinote</span>
   <div>
-    <a href="mailto:ansfdine@gmail.com">ansfdine@gmail.com</a>
+    <span id="devToggle" style="cursor:pointer;color:var(--primary);font-weight:600" onclick="this.style.display='none';document.getElementById('devInfo').style.display='inline'">Developer</span>
+    <span id="devInfo" style="display:none">
+      <a href="mailto:ansfidine@gmail.fr">ansfidine@gmail.fr</a>
+      <a href="https://www.linkedin.com/in/ansfidine/">LinkedIn</a>
+    </span>
     <a href="https://ansfidine.github.io/app-policies/velinote">Privacy</a>
     <a href="fr.html">Français</a>
     <a href="zh.html">中文</a>
